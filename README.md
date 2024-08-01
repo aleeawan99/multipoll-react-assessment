@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# React Multipoll Assessment
+*In this project, a React.js application was created using the Create React App (CRA) template. The app features a multi-step poll form, designed to mimic a specified layout, with a custom-built carousel instead of relying on third-party libraries. Each step in the form is configurable, including attributes like a title (displayed on a side panel) and options with icons and hover labels. A vertical carousel with corresponding animations, such as vertical slide-in effects, was implemented. The options are interactive, with labels appearing on hover and selections being highlighted and labeled upon clicking. The final step includes a summary slide that displays the selected answers, incorporating a reveal-left animation. The final data is submitted to a mock API, and unit tests are written for all components.*
+## Version
+0.1.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
+Available Scripts
+-----------------
+**Clone the Repository:**
+   git clone https://github.com/aleeawan99/multipoll-react-assessment
+#### `npm install`: Install the dependencies.
+#### `npm start`: Launches the app in development mode.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+####  `npm run build`: Builds the app for production.
+#### `npm test`: Runs the test suite.
+#### `npm run eject`: Removes the single build dependency from your project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Libraries
+#### Redux toolkit 
+#### Tailwind css
+#### [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### API Used for Mock Data
+[{JSON} Placeholder](https://jsonplaceholder.typicode.com/) REST API used for mock data.
+POST: `https://jsonplaceholder.typicode.com/posts`

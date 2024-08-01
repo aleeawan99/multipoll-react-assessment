@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store()}>
       <div className='App'>
         <Carousel steps={steps} />
       </div>

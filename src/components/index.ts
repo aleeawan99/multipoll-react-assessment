@@ -1,3 +1,5 @@
 import Carousel from "./Carousel";
+import Loader from "./Loader";
+import Tooltip from "./Tooltip";
 
-export { Carousel }
+export { Carousel, Loader, Tooltip };

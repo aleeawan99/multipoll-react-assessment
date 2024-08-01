@@ -19,11 +19,16 @@ module.exports = {
         slideLeft: {
           '0%': { transform: 'translateX(100%)' },
           '65%, 100%': { transform: 'translateX(0%)' },
+        },
+        slideRight: {
+          '0%': { transform: 'translateX(-80%)' },
+          '50%, 100%': { transform: 'translateX(0%)' },
         }
       },
       animation: {
         slideUp: 'slideUp 1s',
-        slideLeft: 'slideLeft 1.5s'
+        slideLeft: 'slideLeft 1.5s',
+        slideRight: 'slideRight 1.5s'
       }
     },
   },

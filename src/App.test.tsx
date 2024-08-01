@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from './App';
+import { steps } from './data/steps';
+
+test('renders without crashing', () => {
+  // eslint-disable-next-line testing-library/no-unnecessary-act
+  act(() => {
+    render(<App />);
+  });
+  const stepTitle = screen.getByText(steps[0].title);
+  expect(stepTitle).toBeInTheDocument();
 });

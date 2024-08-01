@@ -1,11 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
-import multipollReducer from './reducers/multipollSlice'
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import multipollReducer from "./reducers/multipollSlice";
 
-export const store = configureStore({
-  reducer: {
-    multipoll: multipollReducer,
-  },
-})
+const rootReducer = combineReducers({
+  multipoll: multipollReducer,
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export const store = (preloadedState?: Partial<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+};
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof store>;
+export type AppDispatch = AppStore["dispatch"];

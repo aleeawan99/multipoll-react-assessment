@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useMemo } from "react";
 
-import { Step } from "../../data/steps";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { submitMultipollData } from "../../reducers/multipollSlice";
-import { RootState } from "../../store";
+import { Step } from "../../../data/steps";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { submitMultipollData } from "../../../reducers/multipollSlice";
+import { RootState } from "../../../store";
+import Loader from "../../Loader";
 
 interface Props {
   steps: Step[];
@@ -13,7 +14,7 @@ const Summary: React.FC<Props> = ({ steps }) => {
   const dispatch = useAppDispatch();
   const { selectedOptions, status, error } = useAppSelector((state: RootState) => state.multipoll);
 
-  useEffect(() => {
+  useMemo(() => {
     const selectedData = steps.slice(0, -1).map((step, i) => ({
       question: step.title,
       answer: step.options[selectedOptions[i]].label,
@@ -33,12 +34,13 @@ const Summary: React.FC<Props> = ({ steps }) => {
             <div>{step.options[selectedOptions[i]].label}</div>
             <img
               className='w-12'
-              src={require(`../../assets/icons/${step.options[selectedOptions[i]].icon}`)}
+              src={require(`../../../assets/icons/${step.options[selectedOptions[i]].icon}`)}
               alt={step.options[selectedOptions[i]].label}
             />
           </div>
         </div>
       ))}
+      {status === 'pending' && <Loader />}
       {status === 'failed' && <p>Error: {error}</p>}
     </div>
   )

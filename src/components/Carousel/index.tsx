@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 
 import Dots from "./Dots";
-import Summary from "../Summary";
+import Summary from "./Summary";
+import Tooltip from "../Tooltip";
 import { Step } from "../../data/steps";
 import { useAppDispatch } from "../../hooks";
+import Logo from "../../assets/logo/logo.svg";
 import { setSelectedOption } from "../../reducers/multipollSlice";
 
 interface Props {
@@ -25,14 +27,17 @@ const Carousel: React.FC<Props> = ({ steps }) => {
     setAnimate(true);
   }
 
-  const tooltipClasses: string = 'absolute bottom-full mb-2 w-32 p-2 bg-customPurple text-white text-center text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300';
-
   return (
     <div className='h-screen w-screen grid grid-cols-2'>
+      <img src={Logo} alt="Logo" className="absolute top-0 h-8 m-4" />
       <div className='flex items-center pl-5 bg-customPurple'>
         <Dots currentStep={currentStep} totalSteps={steps.length} />
         <div className='text-white m-8'>
-          <h1 className={`text-6xl font-semibold ${animate ? 'animate-slideUp' : ''}`}>{steps[currentStep].title}</h1>
+          <h1
+            className={`xs:text-3xl sm:text-3xl md:text-6xl lg:text-6xl font-semibold ${animate ? (currentStep === steps.length - 1) ? 'animate-slideRight' : 'animate-slideUp' : ''}`}
+          >
+            {steps[currentStep].title}
+          </h1>
         </div>
       </div>
       <div className='flex items-center justify-center'>
@@ -43,11 +48,11 @@ const Carousel: React.FC<Props> = ({ steps }) => {
             onClick={() => handleOptionClick(currentStep, optIndex)}
           >
             <img
-              className='w-32 hover:translate-y-2 transition-transform cursor-pointer'
+              className='sm:w-24 md:w-32 lg:w-32 w-32 hover:translate-y-2 transition-transform cursor-pointer'
               src={require(`../../assets/icons/${option.icon}`)}
               alt={option.label}
             />
-            <div className={tooltipClasses}>{option.label}</div>
+            <Tooltip label={option.label} />
           </div>
         ))}
         {currentStep === steps.length - 1 && <Summary steps={steps} />}
